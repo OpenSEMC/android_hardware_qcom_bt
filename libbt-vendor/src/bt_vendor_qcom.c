@@ -81,7 +81,7 @@ static int get_bt_soc_type()
     ALOGI("bt-vendor : get_bt_soc_type");
 
     ret = property_get("qcom.bluetooth.soc", bt_soc_type, NULL);
-    if (ret != 0) {
+    if (ret >= 0) {
         ALOGI("qcom.bluetooth.soc set to %s\n", bt_soc_type);
         if (!strncasecmp(bt_soc_type, "rome", sizeof("rome"))) {
             return BT_SOC_ROME;
